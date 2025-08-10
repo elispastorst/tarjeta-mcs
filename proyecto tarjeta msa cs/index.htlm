@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiservicios Automotriz CS - Nuevo Proyecto</title>
+    <!-- Enlace a la fuente de Google Fonts para una tipografía moderna y clara -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Script de Tailwind CSS para un estilo moderno y responsive. Permite que la página se vea bien en cualquier dispositivo. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col items-center justify-start p-4 md:p-8">
+
+    <!-- Contenedor principal de la tarjeta -->
+    <div class="relative w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl overflow-hidden shadow-2xl mt-8 mb-4">
+        
+        <!-- Imagen de fondo del taller de mecánica -->
+        <img 
+            src="https://multiservicios-acs.my.canva.site/_assets/media/3271b04c29922d721a4a946b003e155f.jpg" 
+            alt="Fondo de taller de mecánica" 
+            class="absolute inset-0 w-full h-full object-cover" 
+            onerror="this.onerror=null; this.src='https://placehold.co/600x400/000000/FFFFFF?text=Fondo+de+Taller';"
+        />
+        
+        <!-- Capa de superposición para mejorar la legibilidad del texto -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+
+        <!-- Capa con las formas decorativas del diseño de Canva (dorado/amarillo) -->
+        <div class="absolute inset-0 z-0">
+            <!-- Forma decorativa 1 -->
+            <img 
+                src="https://multiservicios-acs.my.canva.site/_assets/media/ee03a9240691ecc071ec585cc64c5371.jpg" 
+                alt="Forma decorativa" 
+                class="absolute -top-10 -right-10 w-40 transform -rotate-12 opacity-80" 
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/F5BB00/000000?text=Forma+1';"
+            />
+            <!-- Forma decorativa 2 -->
+            <img 
+                src="https://multiservicios-acs.my.canva.site/_assets/media/1dac95a227e14e9d707709774d837e80.jpg" 
+                alt="Forma decorativa" 
+                class="absolute -bottom-10 -left-10 w-40 transform rotate-12 opacity-80" 
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/F5BB00/000000?text=Forma+2';"
+            />
+        </div>
+
+        <!-- Contenido principal de la tarjeta, en primer plano (z-index) -->
+        <div class="relative p-6 flex flex-col items-center justify-center h-full z-10">
+
+            <!-- Espacio para el logo -->
+            <!-- En este momento, no tenemos un logo nuevo. Por lo tanto, mantendremos el de la tarjeta anterior. -->
+            <img 
+                src="images/multiservicio cs_g7.jpg" 
+                alt="Logo de Multiservicios Automotriz CS" 
+                class="w-32 h-32 rounded-full border-4 border-[#e8bb29] mb-4 shadow-xl object-contain bg-white p-2" 
+                onerror="this.onerror=null; this.src='https://placehold.co/128x128/e8bb29/000000?text=LOGO';"
+            />
+            
+            <!-- Ahora solo se muestra el subtítulo para evitar redundancia con el logo -->
+            <div class="text-center mb-6">
+                <p class="text-lg sm:text-xl font-medium uppercase mt-2 text-[#e8bb29] drop-shadow-md">Taller de Auto Mecánica General</p>
+            </div>
+
+            <!-- Sección de botones de navegación y contacto -->
+            <div class="w-full space-y-4 text-center mt-auto">
+                <a href="#servicios" class="block bg-[#e8bb29] text-black py-3 px-6 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition-colors">
+                    Servicios
+                </a>
+                <a href="#seguridad" class="block bg-[#e8bb29] text-black py-3 px-6 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition-colors">
+                    Consejos de Seguridad
+                </a>
+                <a href="https://wa.link/dqirfw" target="_blank" rel="noopener noreferrer" class="block bg-green-500 text-white py-3 px-6 rounded-full font-bold shadow-lg hover:bg-green-600 transition-colors">
+                    <div class="flex items-center justify-center space-x-2">
+                        <span>Contáctanos por WhatsApp</span>
+                        <img 
+                            src="https://multiservicios-acs.my.canva.site/_assets/media/3d20cb19cd624928e83571d86891d03f.jpg" 
+                            alt="WhatsApp Icon" 
+                            class="w-6 h-6"
+                            onerror="this.onerror=null; this.src='https://placehold.co/24x24/FFFFFF/000000?text=WA';"
+                        >
+                    </div>
+                </a>
+                <p class="text-sm font-semibold mt-4 text-white">04124392241</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de servicios, con un ID para que los enlaces puedan apuntar aquí -->
+    <div id="servicios" class="w-full max-w-sm md:max-w-md mx-auto bg-gray-800 rounded-lg p-6 my-8 scroll-mt-24 shadow-xl">
+        <h2 class="text-3xl font-bold mb-4 text-[#e8bb29] text-center">Servicios</h2>
+        <p class="text-gray-200 text-center">
+            En nuestro taller ofrecemos servicio de reparación y mantenimiento para toda clase de vehículos automotores.
+            Atendemos todas las marcas con la máxima profesionalidad.
+        </p>
+    </div>
+
+    <!-- Sección de consejos de seguridad, con un ID para que los enlaces puedan apuntar aquí -->
+    <div id="seguridad" class="w-full max-w-sm md:max-w-md mx-auto bg-gray-800 rounded-lg p-6 my-8 scroll-mt-24 shadow-xl">
+        <h2 class="text-3xl font-bold mb-4 text-[#e8bb29] text-center">Consejos de Seguridad</h2>
+        <p class="text-gray-200 text-center">
+            Es fundamental revisar periódicamente el estado de los neumáticos, frenos y niveles de aceite de tu vehículo
+            para garantizar tu seguridad y la de los tuyos. No dudes en visitarnos para un chequeo completo.
+        </p>
+    </div>
+</body>
+</html>
