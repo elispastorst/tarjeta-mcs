@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             transition: background-color 0.5s ease-in-out;
-            background-color: #f3f4f6; /* Fondo gris claro para el cuerpo de la página */
+            background-color: #f3f4f6;
         }
         .page-content {
             display: none;
@@ -22,7 +22,6 @@
             display: block;
         }
         .main-card-background {
-            /* URL de la imagen de fondo para el recuadro principal */
             background-image: url('https://i.ibb.co/nM6x3yhh/engines-motors-technology-engine-exhaust-wallpaper-preview.jpg');
             background-size: cover;
             background-position: center;
@@ -41,184 +40,66 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
+            border-radius: 4px;
+        }
+
+        /* Estilos para el menú de navegación en móvil */
+        .mobile-menu-container {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+        }
+        .mobile-menu-button {
+            display: none; /* Se muestra solo en móvil */
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: #1f2937;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                width: 100%;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu li {
+                margin-bottom: 0.5rem;
+            }
+            .nav-menu li:last-child {
+                margin-bottom: 0;
+            }
+            .mobile-menu-button {
+                display: block;
+                background-color: #1f2937;
+                color: white;
+                padding: 0.75rem 1rem;
+                border-radius: 9999px; /* rounded-full */
+                cursor: pointer;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1-px rgba(0, 0, 0, 0.06);
+            }
+            .desktop-nav {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Menu -->
-    <nav class="bg-gray-800 bg-opacity-70 backdrop-blur-md p-4 rounded-full shadow-lg fixed top-4 left-1/2 -translate-x-1/2 z-50">
+    <!-- Navigation Menu for Desktop -->
+    <nav class="desktop-nav bg-gray-800 bg-opacity-70 backdrop-blur-md p-4 rounded-full shadow-lg fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <ul class="flex space-x-6 text-white font-semibold">
-            <li><a href="#home" class="nav-link transition duration-300 hover:text-blue-400">Inicio</a></li>
-            <li><a href="#servicios" class="nav-link transition duration-300 hover:text-blue-400">Servicios</a></li>
-            <li><a href="#galeria" class="nav-link transition duration-300 hover:text-blue-400">Galería</a></li>
-            <li><a href="#nosotros" class="nav-link transition duration-300 hover:text-blue-400">Nosotros</a></li>
-            <li><a href="#escaneame" class="nav-link transition duration-300 hover:text-blue-400">Escaneame</a></li>
-            <li><a href="#contacto" class="nav-link transition duration-300 hover:text-blue-400">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <!-- Home Page Content -->
-    <div id="home" class="page-content active">
-        <div class="flex flex-col items-center justify-center min-h-screen p-4 text-center">
-            <!-- El marco vertical con la imagen de fondo -->
-            <div class="main-card-background bg-white bg-opacity-80 backdrop-blur-md rounded-2xl shadow-xl p-8 max-w-sm w-full transition duration-500 hover:scale-105">
-                <!-- LOGO - REEMPLAZA ESTA URL CON LA URL DE TU LOGO -->
-                <img
-                    src="https://i.ibb.co/4nBb25h4/multiservicio-cs-g7.png"
-                    alt="Logo de Multiservicios Automotriz CS"
-                    class="mx-auto mb-6 w-32 h-32 md:w-48 md:h-48 rounded-full shadow-lg"
-                />
-                <p class="text-lg md:text-xl font-medium text-white mb-8">Expertos en mecánica y mantenimiento</p>
-                <div class="space-y-4">
-                    <a
-                        href="tel:+584120000000"
-                        class="w-full inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105"
-                    >
-                        Llamar Ahora
-                    </a>
-                    <a
-                        href="https://wa.me/584120000000"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-full inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-105"
-                    >
-                        Enviar WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Page Content -->
-    <div id="servicios" class="page-content bg-gray-50 p-8 pt-24 min-h-screen">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-12">Nuestros Servicios</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 3v3l2 2m5-7l-5-5-5 5M4 14l5-5-5-5"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mecánica General</h3>
-                    <p class="text-gray-600">Diagnóstico, reparación y mantenimiento de motores, transmisiones y sistemas de suspensión.</p>
-                </div>
-                
-                <!-- Service Card 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 0v-5m0 5c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Electricidad Automotriz</h3>
-                    <p class="text-gray-600">Reparación de sistemas eléctricos, alternadores, baterías, luces y fusibles.</p>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M12 16h.01"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Cambio de Aceite y Filtros</h3>
-                    <p class="text-gray-600">Servicio rápido de cambio de aceite, filtros de aire, combustible y cabina.</p>
-                </div>
-                
-                <!-- Service Card 4 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM7 10h10v4H7zm0 0l-3 4m0-4l-3-4m13 8l3 4m0-4l3-4"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Frenos y Suspensión</h3>
-                    <p class="text-gray-600">Revisión y reemplazo de pastillas, discos de freno, amortiguadores y resortes.</p>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Aire Acondicionado</h3>
-                    <p class="text-gray-600">Recarga de gas, reparación de fugas y mantenimiento del sistema de aire acondicionado.</p>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zM4 15.5V19a2 2 0 002 2h12a2 2 0 002-2v-3.5"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Venta de Repuestos</h3>
-                    <p class="text-gray-600">Suministro de repuestos originales y de calidad para todas las marcas y modelos de vehículos.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Other Placeholder pages -->
-    <div id="galeria" class="page-content">
-        <div class="flex items-center justify-center min-h-screen text-4xl text-gray-700 font-bold bg-gray-100 p-4 text-center">
-            <h1>Contenido de Galería</h1>
-        </div>
-    </div>
-    <div id="nosotros" class="page-content">
-        <div class="flex items-center justify-center min-h-screen text-4xl text-gray-700 font-bold bg-gray-100 p-4 text-center">
-            <h1>Contenido de Nosotros</h1>
-        </div>
-    </div>
-    
-    <!-- QR Code Page Content -->
-    <div id="escaneame" class="page-content bg-gray-100 p-8 pt-24 min-h-screen">
-        <div class="container mx-auto flex flex-col items-center justify-center min-h-screen">
-            <h2 class="text-4xl font-extrabold text-gray-800 text-center mb-8">¡Escanéame!</h2>
-            <div class="bg-white rounded-2xl shadow-xl p-8 transition-transform transform hover:scale-105">
-                <!-- CÓDIGO QR - ESTE ES EL QR EN LA SECCIÓN "ESCANÉAME" -->
-                <img
-                    src="https://i.ibb.co/8ntXC2Vk/descarga.png"
-                    alt="Código QR"
-                    class="mx-auto w-48 h-48 md:w-64 md:h-64 rounded-xl"
-                />
-            </div>
-            <p class="mt-8 text-lg text-gray-600 text-center">Escanea el código para contactarnos.</p>
-        </div>
-    </div>
-
-    <!-- Contact Page Content -->
-    <div id="contacto" class="page-content">
-        <div class="flex items-center justify-center min-h-screen text-4xl text-gray-700 font-bold bg-gray-100 p-4 text-center">
-            <h1>Contenido de Contacto</h1>
-        </div>
-    </div>
-
-    <script>
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.nav-link');
-        // Get all page content containers
-        const pages = document.querySelectorAll('.page-content');
-
-        // Function to show the selected page and hide the others
-        function showPage(pageId) {
-            pages.forEach(page => {
-                if ('#' + page.id === pageId) {
-                    page.classList.add('active');
-                } else {
-                    page.classList.remove('active');
-                }
-            });
-        }
-
-        // Add a click event listener to each navigation link
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const pageId = link.getAttribute('href');
-                showPage(pageId);
-            });
-        });
-
-        // Handle initial page load to show the home page
-        window.addEventListener('DOMContentLoaded', () => {
-            const initialPage = window.location.hash || '#home';
-            showPage(initialPage);
-        });
-    </script>
-</body>
-</html>
+            <li><a href="#home" class="nav-link transition duration-300 hover:text-blue-400 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Inicio</span>
+            </a></li>
+            <li><a href="#servicios" class="nav-link transition duration-300 hover:text-blue-400 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14.5 12c.983-1.838 2.378-4.328 3.5-6s-1-4-2.5-4C13.5 2 12 4 12 4s-1.5-2-2.5-2c-1.5 0-4 2-2.5 4S8.517 10.162 9.5 12"/><path d="M7 16h4.5c.254-1.378.892-2.836 1.5-4h-2.5"/><path d="M17 16h-2.5c-.254-1.378-.892-2.836-1.5-4h2.5"/><path d="M12 22a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/></svg>
+                <span>Servicios</span>
+            </a></li>
+            <li><a href="#galeria" class="nav-link transition duration-300 hover:text-blue-400 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" hei
