@@ -3,110 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiservicios Automotriz CS - Nuevo Proyecto</title>
-    <!-- Enlace a la fuente de Google Fonts para una tipografía moderna y clara -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Script de Tailwind CSS para un estilo moderno y responsive. Permite que la página se vea bien en cualquier dispositivo. -->
+    <title>Multiservicios Automotriz CS</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        /* Estilos para los botones flotantes */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Estilos para la sección de preguntas frecuentes */
+        .faq-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px; /* Ajusta este valor si la respuesta es más larga */
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col items-center justify-start p-4 md:p-8">
+<body class="bg-gray-100">
 
-    <!-- Contenedor principal de la tarjeta -->
-    <div class="relative w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl overflow-hidden shadow-2xl mt-8 mb-4">
-        
-        <!-- Imagen de fondo del taller de mecánica -->
-        <img 
-            src="https://multiservicios-acs.my.canva.site/_assets/media/3271b04c29922d721a4a946b003e155f.jpg" 
-            alt="Fondo de taller de mecánica" 
-            class="absolute inset-0 w-full h-full object-cover" 
-            onerror="this.onerror=null; this.src='https://placehold.co/600x400/000000/FFFFFF?text=Fondo+de+Taller';"
-        />
-        
-        <!-- Capa de superposición para mejorar la legibilidad del texto -->
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-
-        <!-- Capa con las formas decorativas del diseño de Canva (dorado/amarillo) -->
-        <div class="absolute inset-0 z-0">
-            <!-- Forma decorativa 1 -->
-            <img 
-                src="https://multiservicios-acs.my.canva.site/_assets/media/ee03a9240691ecc071ec585cc64c5371.jpg" 
-                alt="Forma decorativa" 
-                class="absolute -top-10 -right-10 w-40 transform -rotate-12 opacity-80" 
-                onerror="this.onerror=null; this.src='https://placehold.co/160x160/F5BB00/000000?text=Forma+1';"
-            />
-            <!-- Forma decorativa 2 -->
-            <img 
-                src="https://multiservicios-acs.my.canva.site/_assets/media/1dac95a227e14e9d707709774d837e80.jpg" 
-                alt="Forma decorativa" 
-                class="absolute -bottom-10 -left-10 w-40 transform rotate-12 opacity-80" 
-                onerror="this.onerror=null; this.src='https://placehold.co/160x160/F5BB00/000000?text=Forma+2';"
-            />
-        </div>
-
-        <!-- Contenido principal de la tarjeta, en primer plano (z-index) -->
-        <div class="relative p-6 flex flex-col items-center justify-center h-full z-10">
-
-            <!-- Espacio para el logo -->
-            <!-- En este momento, no tenemos un logo nuevo. Por lo tanto, mantendremos el de la tarjeta anterior. -->
-            <img 
-                src="images/multiservicio cs_g7.jpg" 
-                alt="Logo de Multiservicios Automotriz CS" 
-                class="w-32 h-32 rounded-full border-4 border-[#e8bb29] mb-4 shadow-xl object-contain bg-white p-2" 
-                onerror="this.onerror=null; this.src='https://placehold.co/128x128/e8bb29/000000?text=LOGO';"
-            />
-            
-            <!-- Ahora solo se muestra el subtítulo para evitar redundancia con el logo -->
-            <div class="text-center mb-6">
-                <p class="text-lg sm:text-xl font-medium uppercase mt-2 text-[#e8bb29] drop-shadow-md">Taller de Auto Mecánica General</p>
+    <!-- Sección de Cabecera con Logo y Teléfono -->
+    <header class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto flex items-center justify-between px-6">
+            <div class="flex items-center space-x-4">
+                <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755564835/LOGO-MSCS_xaz9u0.jpg" alt="Logo" class="h-10 w-10 rounded-full">
+                <span class="text-xl font-bold">Multiservicios Automotriz CS</span>
             </div>
+            <a href="https://wa.me/+584124392241?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20el%20taller." class="flex items-center space-x-2 hover:text-gray-400 transition-colors duration-300">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>+58 412 439 2241</span>
+            </a>
+        </div>
+   <header class="bg-gray-900 text-white shadow-lg">
+    <div class="container mx-auto p-6 flex justify-between items-center relative">
+        <h1 class="text-2xl md:text-3xl font-bold">Multiservicios Automotriz CS</h1>
 
-            <!-- Sección de botones de navegación y contacto -->
-            <div class="w-full space-y-4 text-center mt-auto">
-                <a href="#servicios" class="block bg-[#e8bb29] text-black py-3 px-6 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition-colors">
-                    Servicios
+        <button id="menu-button" class="md:hidden text-white text-2xl z-50">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="main-nav" class="hidden md:flex flex-col md:flex-row absolute md:relative top-0 left-0 w-full h-screen md:h-auto items-center justify-center md:space-x-6 text-lg bg-gray-900 md:bg-transparent z-40 space-y-8 md:space-y-0 p-8 md:p-0">
+            <a href="#inicio" class="hover:text-gray-400 transition duration-300">Inicio</a>
+            <a href="#servicios" class="hover:text-gray-400 transition duration-300">Servicios</a>
+            <a href="#contacto" class="hover:text-gray-400 transition duration-300">Contacto</a>
+            <a href="#ganar-ingresos" class="hover:text-gray-400 transition duration-300">Ganar Ingresos</a>
+        </nav>
+    </div>
+</header>
+
+<nav id="mobile-menu" class="hidden flex-col items-center space-y-4 text-lg bg-gray-900 p-6 w-full z-20 shadow-md">
+    <a href="#inicio" class="hover:text-gray-400 transition duration-300">Inicio</a>
+    <a href="#servicios" class="hover:text-gray-400 transition duration-300">Servicios</a>
+    <a href="#contacto" class="hover:text-gray-400 transition duration-300">Contacto</a>
+    <a href="#ganar-ingresos" class="hover:text-gray-400 transition duration-300">Ganar Ingresos</a>
+</nav>
+
+    <!-- Sección Principal (Hero) -->
+    <main class="container mx-auto p-8">
+        <section id="inicio" class="text-center mb-12">
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">Mantenimiento y Reparación de Confianza</h2>
+                <!-- Imagen de portada "P-1" -->
+                <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755314502/P-1_bcoreg.png" alt="Imagen de portada del taller" class="mx-auto my-6 rounded-lg shadow-md">
+                <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                    Tu vehículo merece el mejor cuidado. En nuestro taller, ofrecemos diagnósticos precisos, reparaciones eficientes y un servicio al cliente excepcional.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://wa.me/+584124392241?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20el%20taller." class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                        Agenda una Cita
+                    </a>
+                    <a href="#servicios" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                        Ver Servicios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios -->
+        <section id="servicios" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">Nuestros Servicios</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 con imagen P-2 -->
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
+                    <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755564412/P-2_soo4z5.png" alt="Diagnóstico Computarizado" class="mx-auto w-full h-auto mb-4 rounded-lg">
+                    <h4 class="font-semibold text-gray-800 text-xl mb-2">Diagnóstico Computarizado</h4>
+                    <p class="text-gray-600">Identificamos el problema de tu vehículo con la última tecnología.</p>
+                </div>
+                <!-- Servicio 2 con imagen P-3 -->
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
+                    <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755564409/P-3_ewbk8e.png" alt="Mecánica General" class="mx-auto w-full h-auto mb-4 rounded-lg">
+                    <h4 class="font-semibold text-gray-800 text-xl mb-2">Mecánica General</h4>
+                    <p class="text-gray-600">Reparaciones de motor, frenos, suspensión y más.</p>
+                </div>
+                <!-- Servicio 3 con imagen P-5 -->
+                <div class="p-6 bg-gray-100 rounded-lg shadow-md text-center">
+                    <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755564413/P-5_xxhb0d.png" alt="Mantenimiento Preventivo" class="mx-auto w-full h-auto mb-4 rounded-lg">
+                    <h4 class="font-semibold text-gray-800 text-xl mb-2">Mantenimiento Preventivo</h4>
+                    <p class="text-gray-600">Cambio de aceite, filtros y chequeos para evitar problemas futuros.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">Contáctanos y Agenda tu Cita</h3>
+                <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+                    Estamos listos para ayudarte con cualquier problema mecánico.
+                </p>
+                <a href="https://wa.me/+584124392241?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20el%20taller." class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition duration-300 shadow-md">
+                    Llamar Ahora
                 </a>
-                <a href="#seguridad" class="block bg-[#e8bb29] text-black py-3 px-6 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition-colors">
-                    Consejos de Seguridad
+            </div>
+        </section>
+
+        <!-- Sección para la página de Emprende World -->
+        <section id="ganar-ingresos" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">Gana Ingresos con Nosotros</h3>
+                <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+                    Aquí puedes ver cómo empezar a generar ingresos.
+                </p>
+                <!-- Imagen de "Emprende World" -->
+                <img src="https://res.cloudinary.com/dysydffc7/image/upload/v1755564408/P-6_w7edxu.png" alt="Emprende World" class="mx-auto w-full h-auto my-6 rounded-lg shadow-md">
+                <!-- Nuevo botón de registro -->
+                <a href="https://www.emprendeworld.com/websignup?ref=52065737" class="bg-green-600 text-white px-8 py-4 mt-6 rounded-full font-semibold hover:bg-green-700 transition duration-300 shadow-md">
+                    Registro
                 </a>
-                <a href="https://wa.link/dqirfw" target="_blank" rel="noopener noreferrer" class="block bg-green-500 text-white py-3 px-6 rounded-full font-bold shadow-lg hover:bg-green-600 transition-colors">
-                    <div class="flex items-center justify-center space-x-2">
-                        <span>Contáctanos por WhatsApp</span>
-                        <img 
-                            src="https://multiservicios-acs.my.canva.site/_assets/media/3d20cb19cd624928e83571d86891d03f.jpg" 
-                            alt="WhatsApp Icon" 
-                            class="w-6 h-6"
-                            onerror="this.onerror=null; this.src='https://placehold.co/24x24/FFFFFF/000000?text=WA';"
-                        >
+            </div>
+        </section>
+
+        <!-- Sección de Preguntas Frecuentes para Emprende World -->
+        <section id="faq" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">Preguntas Frecuentes (FAQ)</h3>
+            <div class="max-w-2xl mx-auto space-y-4">
+                <!-- Pregunta 1 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Qué es Emprende World?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
                     </div>
-                </a>
-                <p class="text-sm font-semibold mt-4 text-white">04124392241</p>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Emprende World es una plataforma que te permite generar ingresos a través de la venta de productos digitales y servicios. Ofrecemos herramientas, entrenamiento y apoyo para que puedas construir tu propio negocio online.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Cómo funciona el registro?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>El registro es un proceso simple y rápido. Solo necesitas hacer clic en el botón "Registro" y serás redirigido a la página oficial. Una vez allí, completa tus datos para crear tu cuenta y empezar tu camino como emprendedor.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Se necesita experiencia previa?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>No, no necesitas experiencia previa. La plataforma de Emprende World ofrece toda la capacitación necesaria para que aprendas desde cero. Tienen módulos de entrenamiento, tutoriales y un equipo de soporte que te guiará en cada paso.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Cómo me capacito dentro de la plataforma?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Una vez registrado, tendrás acceso a un área de miembros con contenido exclusivo que incluye módulos de video, guías y tutoriales. Además, hay sesiones en vivo y grupos de apoyo para que puedas resolver tus dudas.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Cuál es el costo de la membresía?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Emprende World ofrece diferentes planes de membresía para adaptarse a tus necesidades. La inversión varía según el nivel de acceso y las herramientas que necesites para tu negocio. Puedes ver los detalles en la página oficial.</p>
+                    </div>
+                </div>
+                
+                <!-- Pregunta 6 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Cómo me pagan mis comisiones?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Las comisiones se pagan de manera segura y confiable a través de métodos de pago internacionales. Puedes recibir tus ganancias en tu cuenta bancaria o monedero virtual, dependiendo de tu ubicación y preferencia.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 7 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Puedo promocionar los productos en redes sociales?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Sí, la plataforma te brinda todas las herramientas y recursos de marketing necesarios, como imágenes, videos y textos persuasivos, para que puedas promocionar los productos en tus redes sociales y llegar a más clientes.</p>
+                    </div>
+                </div>
+
+                <!-- Pregunta 8 -->
+                <div class="faq-item bg-gray-100 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-semibold text-gray-800">¿Se necesita una inversión inicial?</h4>
+                        <i class="faq-icon fa-solid fa-chevron-down text-gray-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-600">
+                        <p>Sí, se requiere una inversión inicial para acceder a los productos y al plan de capacitación de Emprende World. Sin embargo, esta inversión es mínima y se recupera rápidamente una vez que empiezas a generar tus primeras ventas y comisiones.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-gray-900 text-white p-6 mt-12">
+        <div class="container mx-auto text-center text-sm">
+            &copy; 2025 Multiservicios Automotriz CS. Todos los derechos reservados.
         </div>
+    </footer>
+
+    <!-- Botones Flotantes de Contacto con íconos de Font Awesome -->
+    <div class="floating-button">
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/+584124392241?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20el%20taller." 
+           class="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-110"
+           title="WhatsApp">
+            <i class="fa-brands fa-whatsapp fa-xl"></i>
+        </a>
+        <!-- Botón de Llamada -->
+        <a href="https://wa.me/+584124392241?text=Hola,%20quisiera%20agendar%20una%20cita%20en%20el%20taller." 
+           class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-110"
+           title="Llamar">
+            <i class="fa-solid fa-phone fa-xl"></i>
+        </a>
     </div>
 
-    <!-- Sección de servicios, con un ID para que los enlaces puedan apuntar aquí -->
-    <div id="servicios" class="w-full max-w-sm md:max-w-md mx-auto bg-gray-800 rounded-lg p-6 my-8 scroll-mt-24 shadow-xl">
-        <h2 class="text-3xl font-bold mb-4 text-[#e8bb29] text-center">Servicios</h2>
-        <p class="text-gray-200 text-center">
-            En nuestro taller ofrecemos servicio de reparación y mantenimiento para toda clase de vehículos automotores.
-            Atendemos todas las marcas con la máxima profesionalidad.
-        </p>
-    </div>
+    // Código para el menú desplegable en móviles
+const menuButton = document.getElementById('menu-button');
+const mainNav = document.getElementById('main-nav');
 
-    <!-- Sección de consejos de seguridad, con un ID para que los enlaces puedan apuntar aquí -->
-    <div id="seguridad" class="w-full max-w-sm md:max-w-md mx-auto bg-gray-800 rounded-lg p-6 my-8 scroll-mt-24 shadow-xl">
-        <h2 class="text-3xl font-bold mb-4 text-[#e8bb29] text-center">Consejos de Seguridad</h2>
-        <p class="text-gray-200 text-center">
-            Es fundamental revisar periódicamente el estado de los neumáticos, frenos y niveles de aceite de tu vehículo
-            para garantizar tu seguridad y la de los tuyos. No dudes en visitarnos para un chequeo completo.
-        </p>
-    </div>
-</body>
-</html>
+menuButton.addEventListener('click', () => {
+    mainNav.classList.toggle('hidden');
+    mainNav.classList.toggle('flex');
+});
+
